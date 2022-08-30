@@ -1,14 +1,16 @@
 import React from 'react';
-import './App.css';
+import ItemCount from './Fragmentos/ItemCount';
 import Navbar from './Fragmentos/Navbar';
-import ItemListContainer from '../Components/Fragmentos/ItemListContainer'
-
+import './App.css';
 
 const App = () => {
+    const onAdd = () => {
+        console.log();
+    }
     return (
         <>
             <Navbar/>
-            <ItemListContainer greeting ='CATALOGO: Proximamente...' />
+            <ItemCount className= 'contar' initial={1} stock={5} onAdd={onAdd}/>
         </>
     );
 }
