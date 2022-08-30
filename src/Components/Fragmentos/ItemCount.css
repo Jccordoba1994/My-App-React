@@ -1,0 +1,17 @@
+.contenedor {
+    border: solid 2px;
+    border-radius: 15%;
+    width: 150px;
+    margin: 20px;
+    text-align: center;
+}
+
+.botella {
+    width: 80px;
+    margin: 20px;
+
+}
+
+.texto {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

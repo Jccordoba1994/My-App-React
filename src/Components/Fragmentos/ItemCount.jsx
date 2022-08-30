@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './ItemCount.css'
 
 
 const ItemCount = ({initial, stock, onAdd}) => {
@@ -12,17 +13,36 @@ const ItemCount = ({initial, stock, onAdd}) => {
     }
 
     return (
-        <div>
-            <p>
-                Contador: {cont}
-            </p>
-            <button className='btn btn-primary' disabled={cont >= stock} onClick={() => Contador('+')}>
-                +
-            </button>
-            <button className='btn btn-secondary' disabled={cont <= 1} onClick={() => Contador('-')}>
-                -
-            </button>
-        </div>
+        <>
+            <div className='contenedor'>
+                <img className='botella' src="https://cdn.pixabay.com/photo/2012/04/15/21/02/champagne-35313_1280.png" alt="Champagne" />
+                <p className='texto'>
+                    CHAMPAGNE 
+                    <br />
+                    {cont}
+                </p>
+                <button className='btn btn-primary' disabled={cont <= 1} onClick={() => Contador('-')}>
+                    -
+                </button>
+                <button className='btn btn-secondary' disabled={cont >= stock} onClick={() => Contador('+')}>
+                    +
+                </button>
+            </div>
+            <div className='contenedor'>
+                <img className='botella' src="https://cdn.pixabay.com/photo/2015/10/28/15/10/wine-1010656_1280.png" alt="Vino" />
+                <p className='texto'>
+                    VINO 
+                    <br />
+                    SIN STOCK
+                </p>
+                <button className='btn btn-primary'>
+                    -
+                </button>
+                <button className='btn btn-secondary'>
+                    +
+                </button>
+            </div>
+        </>
     );
 }
 
