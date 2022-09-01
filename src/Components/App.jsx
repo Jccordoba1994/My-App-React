@@ -1,6 +1,6 @@
 import React from 'react';
-import ItemCount from './Fragmentos/ItemCount';
 import Navbar from './Fragmentos/Navbar';
+import ItemListContainer from './ItemListContainer';
 import './App.css';
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
     return (
         <>
             <Navbar/>
-            <ItemCount className= 'contar' initial={1} stock={5} onAdd={onAdd}/>
+            <ItemListContainer/>
         </>
     );
 }

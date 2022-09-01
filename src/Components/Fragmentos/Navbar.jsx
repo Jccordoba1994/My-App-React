@@ -9,7 +9,7 @@ function Navbar() {
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">Navbar</a>
+          <a className="navbar-brand" href="#">YourDrink</a>
           <div className="collapse navbar-collapse" id="navbarColor01">
 
             <Form boton={<Boton/>}/>
