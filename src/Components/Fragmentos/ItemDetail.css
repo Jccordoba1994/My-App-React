@@ -1,0 +1,36 @@
+
+.card-border-primary-mb-3 {
+    margin: 15px;
+}
+
+.card-header1 {
+    text-align: center;
+    border-radius: 10px;
+}
+
+.card-title1 {
+    text-align: center;
+    font-weight: bold;
+}
+.imagen {
+    width: 450px;
+    height: 300px;
+    margin-left: 3px;
+    margin-top: 10px;
+    border-radius: 25px;
+}
+
+.card-text2{
+    text-align: center;
+    font-size: 20px;
+    margin: 15px;
+    background: rgb(136, 250, 155);
+    border-radius: 15px;
+}
+
+.boton {
+    margin-left: 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border-color: gray;
+}
