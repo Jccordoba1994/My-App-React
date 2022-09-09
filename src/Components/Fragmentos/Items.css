@@ -1,3 +1,7 @@
+.container {
+    flex-direction: row;
+}
+
 .card-border-primary-mb-3 {
     margin-left: 15px;
 }
@@ -21,4 +25,11 @@
     text-align: center;
     background: rgb(187, 185, 185);
     border-radius: 15px;
+}
+
+.boton {
+    margin-left: 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border-color: gray;
 }
