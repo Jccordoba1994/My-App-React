@@ -1,8 +1,13 @@
 import React from 'react';
 import Brochetas from '../../Images/Brochetas.jpg'
+import ItemCount from './ItemCount';
 import './ItemDetail.css';
 
 const ItemDetail = () => {
+    const onAdd = () => {
+        console.log();
+    }
+
     return (
         <div className="card border-primary mb-3" style={{maxWidth: '30rem', margin: '20px'}}>
             <img className='imagen' src={Brochetas} alt="Brochetas de verduras" />
@@ -17,7 +22,8 @@ const ItemDetail = () => {
                     <li>Cebolla morada</li>
                     <li>Papa</li>
                     <li>Calabacin </li>
-                </ul>
+                </ul>   
+                <ItemCount className= 'contar' initial={1} stock={5} onAdd={onAdd}/>
             </div>
         </div>
     )

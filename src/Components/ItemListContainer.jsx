@@ -30,9 +30,11 @@ const ItemListContainer = () => {
     }, [])
     
     return (
-        <div className='row'>
-            {productosState.length > 0 && <ItemList listP={productosState}/>}
-        </div>
+        <>
+            <div className='row'>
+                {productosState.length > 0 && <ItemList listP={productosState}/>}
+            </div>
+        </>
     );
 }
 

@@ -1,0 +1,13 @@
+.contenedor {
+    
+    width: 150px;
+    margin: 10px;
+    margin-left: 25px;
+    max-height: 100px;
+    text-align: center;
+}
+
+.contador {
+    font-weight: bold;
+    font-size: 15px;
+}

@@ -18,7 +18,7 @@ const ItemDetailContainer = () => {
         .finally(() => setIsLoading(false));
 
     }, []);
-    return isLoading ? <h2>El menu del día es...</h2> : <ItemDetail />
+    return isLoading ? <button>Menu del día</button> : <ItemDetail />
 }
 
 export default ItemDetailContainer;
