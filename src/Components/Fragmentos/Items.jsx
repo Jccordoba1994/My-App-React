@@ -1,19 +1,20 @@
-import ItemCount from './ItemCount';
-import './Items.css'
-const Items = ({title, imageurl, price, stock}) => {
+import React from 'react';
+import {Link} from 'react-router-dom'
 
-    const onAdd = () => {
-        console.log();
-    }
+import './Items.css'
+
+const Items = ({item}) => {
+    const {title, imageurl, price, stock, id} = item
     
     return (
         <div className="card border-primary mb-3" style={{maxWidth: '15rem', margin: '10px'}}>
             <div className="card-header">{title}</div>
             <div className="card-body">
-                <img className="imagenes" src={imageurl} alt="" />
+                <img className="imagenes" src={imageurl} alt={`Imagen de ${title}`} />
                 <p className="card-text"> ${price}</p>
-                <button className='boton'>Detalles del producto</button>
-                <ItemCount className= 'contar' initial={1} stock={stock} onAdd={onAdd}/>
+                <Link to={`/detalles/${id}`}>
+                    <button className='boton'>Detalles del producto</button>
+                </Link >
                 <p className="card-text1"> Stock: {stock}</p>
             </div>
         </div>

@@ -1,24 +1,35 @@
 import React, {useState, useEffect} from 'react';
+import productos from './Fragmentos/Item';
 import ItemDetail from './Fragmentos/ItemDetail';
+import { useParams } from 'react-router-dom';
 
 
 const ItemDetailContainer = () => {
-    const [item, setItem] = useState ([]);
-    const [isLoading, setIsLoading] = useState (true);
 
+    const {id} = useParams()
+    // estado que va a guardar el listado de nuestros productos
+    const [item, setItem] = useState ();
+
+    // la promesa, nos devuelve los productos
+    const getItem = () => new Promise ((res, rej) => {
+        setTimeout (() => res(productos.find(productos => productos.id === Number(id))), 2000)
+    });
+
+    // encargado de cumplir la promesa
     useEffect(() => {
-        const getItem = new Promise ((res, rej) => {
-            setTimeout (() => {
-                res(ItemDetail)
-            }, 2000)
-        });
+        getItem ()
+        .then(res => setItem(res))
+    // para terminar setiendola en el estado
 
-        getItem
-        .then((response => setItem(response)))
-        .finally(() => setIsLoading(false));
+    }, [])
 
-    }, []);
-    return isLoading ? <button>Menu del día</button> : <ItemDetail />
+    return (
+        <>
+            {
+                item ? <ItemDetail item= {item}/> : <h1>Cargando...</h1>
+            }   
+        </>
+    )
 }
 
 export default ItemDetailContainer;

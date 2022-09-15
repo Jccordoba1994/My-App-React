@@ -2,12 +2,12 @@ import React from 'react';
 import Items from './Items';
 
 
-const ItemList = ({listP}) => {
+const ItemList = ({productosState}) => {
     return (
-        <ul>
-        {listP.map((productos) => (
-            <Items {...productos} key={productos.id}/>
-        ))}
+        <ul style={{display: 'flex'}}>
+        {
+            productosState.map(item => <Items item={item} key={item.id}/>)
+        }   
         </ul>
     );
 };

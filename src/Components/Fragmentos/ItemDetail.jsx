@@ -1,31 +1,28 @@
 import React from 'react';
-import Brochetas from '../../Images/Brochetas.jpg'
 import ItemCount from './ItemCount';
 import './ItemDetail.css';
 
-const ItemDetail = () => {
-    const onAdd = () => {
-        console.log();
+const ItemDetail = ({item}) => {
+    const onAdd = (cantidad) => {
+        console.log(cantidad);
     }
 
     return (
-        <div className="card border-primary mb-3" style={{maxWidth: '30rem', margin: '20px'}}>
-            <img className='imagen' src={Brochetas} alt="Brochetas de verduras" />
-            <div className="card-header">Brochetas de Verduras</div>
-            <div className="card-body1">
-                <h4 className="card-title1">$560</h4>
-                <ul className='card-text2'>
-                    <li>Pimiento verde</li>
-                    <li>Pimiento amarillo</li>
-                    <li>Zanahoria</li>
-                    <li>Tomate</li>
-                    <li>Cebolla morada</li>
-                    <li>Papa</li>
-                    <li>Calabacin </li>
-                </ul>   
-                <ItemCount className= 'contar' initial={1} stock={5} onAdd={onAdd}/>
+        <article>
+            <h1>{item.title}</h1>
+            <div className='card-detail'>
+                <div className='card-detail-left'>
+                    <img src={item.imageurl} alt={item.title} className='img'/>
+                </div>
+                <div className='card-detail-right'>
+                    <p>{item.description}</p>
+                    <p className='price'>${item.price}</p>
+                    <p>Stock: {item.stock}</p>
+                    <ItemCount stock={item.stock} initial={0} onAdd={onAdd} />
+                    <button>Añadir al carrito</button>
+                </div>
             </div>
-        </div>
+        </article>
     )
 }
 

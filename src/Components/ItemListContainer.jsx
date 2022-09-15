@@ -1,41 +1,39 @@
 import React, {useState, useEffect} from 'react';
 import ItemList from './Fragmentos/ItemList';
 import productos from '../Components/Fragmentos/Item';
-
-
-
-function consultarPromesa(confirmacion) {
-    return new Promise ((res,rej) => {
-        if (confirmacion) {
-            res (productos)
-        } else {
-            rej('Acceso denegado')
-        }
-    })
-}
+import { useParams } from 'react-router-dom';
 
 const ItemListContainer = () => {
+    // estado que va a guardar el listado de nuestros productos
     const [productosState, setProductosState] = useState ([]);
 
-    console.log(productosState)
-    useEffect(() => {
-        consultarPromesa(true)
-    .then(data => {
-        setProductosState(productos)
-        })
-        .catch(error => {
-            console.error(error)
-        })
+    const {categoria} = useParams()
 
-    }, [])
+    const consultarPromesa= () => new Promise ((res,rej) => {
+        if (categoria) {
+            setTimeout(() => res (productos.filter(item => item.category === categoria)), 2000 )
+        } else {
+            setTimeout(() => res (productos), 2000 )
+        }
+    })
+    
+    useEffect(() => {
+        consultarPromesa()
+        .then(productos => setProductosState(productos))
+        .catch(error => console.error(error))
+
+        return () => {
+            setProductosState([])
+        }
+    }, [categoria])
     
     return (
         <>
-            <div className='row'>
-                {productosState.length > 0 && <ItemList listP={productosState}/>}
-            </div>
+            {
+                productosState.length ? <ItemList productosState={productosState} /> : <h1>Cargando...</h1>
+            }
         </>
-    );
+    )
 }
 
 export default ItemListContainer;
