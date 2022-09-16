@@ -9,17 +9,17 @@ const ItemListContainer = () => {
 
     const {categoria} = useParams()
 
-    const consultarPromesa= () => new Promise ((res,rej) => {
+    const consultarPromesa = new Promise ((res,rej) => {
         if (categoria) {
             setTimeout(() => res (productos.filter(item => item.category === categoria)), 2000 )
         } else {
             setTimeout(() => res (productos), 2000 )
         }
     })
-    
+
     useEffect(() => {
-        consultarPromesa()
-        .then(productos => setProductosState(productos))
+        consultarPromesa
+        .then((productos) => setProductosState(productos))
         .catch(error => console.error(error))
 
         return () => {
@@ -29,9 +29,7 @@ const ItemListContainer = () => {
     
     return (
         <>
-            {
-                productosState.length ? <ItemList productosState={productosState} /> : <h1>Cargando...</h1>
-            }
+            {productosState.length ? (<ItemList productosState={productosState} />) : (<h1>Cargando...</h1>)}
         </>
     )
 }

@@ -9,7 +9,7 @@ const ItemDetail = ({item}) => {
 
     return (
         <article>
-            <h1>{item.title}</h1>
+            <h1 className='titulo'>{item.title}</h1>
             <div className='card-detail'>
                 <div className='card-detail-left'>
                     <img src={item.imageurl} alt={item.title} className='img'/>
@@ -19,11 +19,15 @@ const ItemDetail = ({item}) => {
                     <p className='price'>${item.price}</p>
                     <p>Stock: {item.stock}</p>
                     <ItemCount stock={item.stock} initial={0} onAdd={onAdd} />
-                    <button>Añadir al carrito</button>
+                    <button className='button button-buy' onClick={() => agregarCarrito (item)}>Añadir al carrito</button>
                 </div>
             </div>
         </article>
     )
+}
+
+const agregarCarrito = (item) => {
+    console.log(item);
 }
 
 export default ItemDetail;

@@ -11,14 +11,13 @@ const ItemDetailContainer = () => {
     const [item, setItem] = useState ();
 
     // la promesa, nos devuelve los productos
-    const getItem = () => new Promise ((res, rej) => {
-        setTimeout (() => res(productos.find(productos => productos.id === Number(id))), 2000)
+    const getItem = new Promise ((res, rej) => {
+        setTimeout (() => res(productos.find((producto) => producto.id === id)), 2000)
     });
 
     // encargado de cumplir la promesa
     useEffect(() => {
-        getItem ()
-        .then(res => setItem(res))
+        getItem.then((res) => setItem(res))
     // para terminar setiendola en el estado
 
     }, [])
@@ -26,7 +25,7 @@ const ItemDetailContainer = () => {
     return (
         <>
             {
-                item ? <ItemDetail item= {item}/> : <h1>Cargando...</h1>
+                item ? (<ItemDetail item={item}/>) : (<h1>Cargando...</h1>)
             }   
         </>
     )

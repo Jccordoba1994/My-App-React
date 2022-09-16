@@ -11,7 +11,6 @@ const ItemCount = ({stock, initial = 1, onAdd}) => {
         count > initial && setCount( count - 1 )
     }
 
-
     return (
         <div className='counter-container'>
             <p className='counter'>{count}</p>
@@ -19,7 +18,6 @@ const ItemCount = ({stock, initial = 1, onAdd}) => {
                 <button className='button' onClick={subtractCounter}>-</button>
                 <button className='button' onClick={addCounter}>+</button>
             </div>
-            <button className='button button-buy'>Añadir al carrito</button>
         </div>
     )
 }
