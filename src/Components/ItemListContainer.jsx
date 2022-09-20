@@ -11,7 +11,7 @@ const ItemListContainer = () => {
 
     const consultarPromesa = new Promise ((res,rej) => {
         if (categoria) {
-            setTimeout(() => res (productos.filter(item => item.category === categoria)), 2000 )
+            setTimeout(() => res (productos.filter(item => item.categoria === categoria)), 2000 )
         } else {
             setTimeout(() => res (productos), 2000 )
         }

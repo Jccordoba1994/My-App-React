@@ -19,15 +19,10 @@ const ItemDetail = ({item}) => {
                     <p className='price'>${item.price}</p>
                     <p>Stock: {item.stock}</p>
                     <ItemCount stock={item.stock} initial={0} onAdd={onAdd} />
-                    <button className='button button-buy' onClick={() => agregarCarrito (item)}>Añadir al carrito</button>
                 </div>
             </div>
         </article>
     )
-}
-
-const agregarCarrito = (item) => {
-    console.log(item);
 }
 
 export default ItemDetail;
